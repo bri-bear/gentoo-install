@@ -7,10 +7,6 @@ fi
 
 set -e 
 
-ROOT_PASSWORD="gentoo"
-
-
-
 
 echo "[Setting time!]"
 

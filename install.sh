@@ -7,8 +7,6 @@ fi
 
 set -e 
 
-TARGET_DRIVE=/dev/sda
-
 ROOT_PASSWORD="gentoo"
 
 
@@ -20,7 +18,7 @@ timedatectl set-timezone America/Halifax
 
 echo "[Partitioning]"
 
-sfdisk ${TARGET_DISK} << END
+sfdisk /dev/sda << END
 size=128MB,bootable
 size=1024MB
 ;

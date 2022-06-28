@@ -5,6 +5,8 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+set -e 
+
 TARGET_DRIVE=/dev/sda
 
 ROOT_PASSWORD="gentoo"

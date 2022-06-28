@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# +-----------------------------+
+# | written by                  |
+# | briannastalkingdrum         |
+# |                             |
+# |                             |
+# |                             |
+# |                             |
+# |                             |
+# | do whatever you want with it|
+# +-----------------------------+
+
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
@@ -23,7 +34,7 @@ END
 
 yes | mkfs.ext4 /dev/sda1
 yes | mkfs.ext4 /dev/sda3
-yes | mkswap /dev/sda2 && swapon/dev/sda2
+yes | mkswap /dev/sda2 && swapon /dev/sda2
 
 
 echo "[Mounting partitions]"

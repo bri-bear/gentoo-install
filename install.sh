@@ -1,15 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
 
 TARGET_DRIVE=/dev/sda
 
 ROOT_PASSWORD="gentoo"
 
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
+
 
 echo "[Setting time!]"
 

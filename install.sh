@@ -11,6 +11,8 @@
 # | do whatever you want with it|
 # +-----------------------------+
 
+umount /dev/sda1 /dev/sda2 /dev/sda3
+swapoff /dev/sda2
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
@@ -25,7 +27,7 @@ timedatectl set-timezone America/Halifax
 
 echo "[Partitioning]"
 
-sfdisk /dev/sda << END
+sfdisk /dev/sda --force << END
 size=128MB,bootable
 size=1024MB
 ;
@@ -39,11 +41,11 @@ yes | mkswap /dev/sda2 && swapon /dev/sda2
 
 echo "[Mounting partitions]"
 
-mkdir -p /mnt/gentoo/boot
+mkdir -p -v /mnt/gentoo/boot
+sleep 5
 mount /dev/sda3 /mnt/gentoo
 mount /dev/sda1 /mnt/gentoo/boot
 
-cd /mnt/gentoo
 
 echo "[Setting up stage3]"
 
